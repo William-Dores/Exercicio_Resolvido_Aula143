@@ -26,6 +26,7 @@ public class Program {
 		int n = sc.nextInt();
 		
 		for (int i = 1; i <= n; i++) {
+			System.out.println("Dados #"+i+" produto");
 			System.out.print("Comum, usado ou importado (c/u/i)? ");
 			char tipo = sc.next().charAt(0);
 			System.out.print("Nome: ");
@@ -34,12 +35,12 @@ public class Program {
 			System.out.print("Preço: ");
 			double preco = sc.nextDouble();
 			if (tipo == 'i') {
-				System.out.print("Taxa alfandegaria: ");
+				System.out.print("Taxa alfandega: ");
 				double taxaAlfandega = sc.nextDouble();
 				listProduto.add(new ProdutoImportado(nome, preco, taxaAlfandega));
 			}
-			if (tipo == 'u') {
-				System.out.print("Data de fabricação (DD/MM/YYYY)");
+			else if (tipo == 'u') {
+				System.out.print("Data de fabricação (DD/MM/YYYY) ");
 				Date dataFabricacao = sdf.parse(sc.next());
 				listProduto.add(new ProdutosUsado(nome, preco, dataFabricacao));
 			}
@@ -49,8 +50,11 @@ public class Program {
 			
 		}
 		
+		System.out.println();
+		System.out.println("ETIQUETA DE PREÇO: ");
+		
 		for (Produto prod : listProduto) {
-			System.out.println(prod);
+			System.out.println(prod.precoEtiqueta());
 		}
 		
 		sc.close();

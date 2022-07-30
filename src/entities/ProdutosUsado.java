@@ -26,15 +26,12 @@ public class ProdutosUsado extends Produto {
 		this.dataDeFabricacao = dataDeFabricacao;
 	}
 	
-
 	@Override
-	public String toString() {
+	public String precoEtiqueta() {
 		return getNome() + " (used) $ "
 				+String.format("%.2f", getPreco())
 				+ " (Data de fabricação: "
 				+sdf.format(dataDeFabricacao)+")";
 	}
-	
-	
 	
 }

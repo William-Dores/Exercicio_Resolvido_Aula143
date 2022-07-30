@@ -29,14 +29,11 @@ public class Produto {
 		this.preco = preco;
 	}
 	
-	//public String precoEtiqueta() {
-	//	return nome;
-	//}
-
-	@Override
-	public String toString() {
+	public String precoEtiqueta() {
 		return  nome + " $ " + String.format("%.2f", preco);
 	}
+
+	
 	
 	
 	

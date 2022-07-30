@@ -21,15 +21,13 @@ public class ProdutoImportado  extends Produto{
 	}
 	
 	
-	public double precoTotal(double taxaAlfandega) {
-		this.taxaAlfandega = taxaAlfandega;
-		return super.getPreco() + taxaAlfandega;
-	}
-
-@Override
-	public String toString() {
-		return getNome() + " $ "+ String.format("%.2f", getPreco()+taxaAlfandega) + "Taxa Alfandega: $ "+String.format("%.2f", getTaxaAlfandega());
+	public double precoTotal() {
+		return getPreco() + taxaAlfandega;
 	}
 	
+	@Override
+	public String precoEtiqueta() {
+		return getNome() + " $ "+ String.format("%.2f", precoTotal()) + " (Taxa Alfandega: $ "+String.format("%.2f", getTaxaAlfandega()+")");
+	}
 	
 }
